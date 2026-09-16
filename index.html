@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解谜通关 · 祝贺</title>
+  <style>
+    /* 极简重置与基调 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #e3e9ed;
+
+      /* 背景图设置 */
+      background-image: url('screenshot.png');
+      background-size: contain;        /* 完整显示，不裁切 */
+      background-position: center;     /* 居中 */
+      background-repeat: no-repeat;    /* 不重复 */
+      background-attachment: fixed;    /* 背景固定，滚动不动 */
+
+      /* 背景兜底色 */
+      background-color: #0b0d10;
+    }
+
+    /* 主卡片 — 干净、呼吸感 */
+    .congrats {
+      max-width: 760px;
+      width: 100%;
+      background: rgba(18, 22, 28, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(120, 180, 200, 0.2);
+      border-radius: 2.5rem;
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(180, 220, 240, 0.05) inset;
+      transition: border-color 0.3s ease;
+    }
+
+    .congrats:hover {
+      border-color: rgba(140, 210, 230, 0.4);
+    }
+
+    /* 抽象装饰——细线几何，不抢眼 */
+    .badge {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 3rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 12px rgba(110, 200, 220, 0.5));
+      opacity: 0.9;
+      letter-spacing: 6px;
+    }
+
+    /* 主标题 — 清晰、收敛 */
+    h1 {
+      font-size: clamp(2.4rem, 10vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-shadow: 0 2px 15px rgba(0, 180, 220, 0.3);
+      word-break: break-word;
+    }
+
+    h1 span {
+      display: inline-block;
+      font-weight: 300;
+      background: linear-gradient(135deg, #c0e0f0, #8bb8cc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* 副标题 / 说明 */
+    .sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #9aacb8;
+      margin-bottom: 2.75rem;
+      letter-spacing: 0.3px;
+      line-height: 1.6;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 极细分隔线 */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(120, 190, 210, 0.3);
+      margin: 2rem auto 2.5rem;
+      border-radius: 10px;
+    }
+
+    /* 感谢游玩区块 */
+    .thanks {
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #b0d0dc;
+      margin-bottom: 1.75rem;
+      text-shadow: 0 0 8px rgba(80, 180, 210, 0.2);
+    }
+
+    .thanks span {
+      display: inline-block;
+      padding: 0 0.2rem;
+      border-bottom: 1px dashed rgba(150, 200, 220, 0.4);
+    }
+
+    /* 底部小字 / 意境 */
+    .footnote {
+      font-size: 0.9rem;
+      color: #5f717e;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footnote .dot {
+      width: 4px;
+      height: 4px;
+      background: #4b7a8a;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* 可选的微妙飘动光点 —— 极简点缀 */
+    .glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: radial-gradient(circle at 70% 30%, rgba(80, 180, 210, 0.08) 0%, transparent 60%);
+      z-index: -1;
+    }
+
+    /* 小屏优化 */
+    @media (max-width: 480px) {
+      .congrats {
+        padding: 3rem 1.25rem;
+        border-radius: 2rem;
+      }
+
+      .badge {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+      }
+
+      .sub {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .divider {
+        margin: 1.75rem auto 2rem;
+      }
+
+      .thanks {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <main class="congrats">
+    <div class="badge" aria-hidden="true">✦ ✦ ✦</div>
+
+    <h1>
+      <span>通关</span> 快乐
+    </h1>
+
+    <p class="sub">
+      你已越过终末的门扉，<br>
+      智慧与耐心点亮了最后的出口。
+    </p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <div class="thanks">
+      <span>感谢游玩</span>
+    </div>
+
+    <div class="footnote">
+      <span>🎉</span>
+      <span>恭喜你完成了这场解谜之旅</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>愿好奇心永不落幕</span>
+    </div>
+  </main>
+</body>
+</html>
